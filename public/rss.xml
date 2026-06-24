@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lee | 梦回廊</title>
+    <link>https://yourdomain.com</link>
+    <description>漫步于记忆与想象的廊道 —— 写代码，也做梦。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 24 Jun 2026 03:43:33 GMT</lastBuildDate>
+    <atom:link href="https://yourdomain.com/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>你好，梦回廊</title>
+      <link>https://yourdomain.com/blog/hello-world</link>
+      <guid isPermaLink="true">https://yourdomain.com/blog/hello-world</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <description>这是梦回廊的第一篇文章。在这里，我会记录自己的想法、技术和生活。</description>
+    </item>
+  </channel>
+</rss>
