@@ -124,7 +124,7 @@ export default function MainPage() {
       {/* 首页 image as full-screen background */}
       <div className="main-hero-img">
         <img
-          src="/images/主页.jpg"
+          src="/images/home-bg.jpg"
           alt="background"
           style={{
             width: "100%",
