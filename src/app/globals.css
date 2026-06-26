@@ -5,10 +5,7 @@
   --color-sakura: #f0a8b8;
   --color-sakura-deep: #d4788e;
   --color-ink: #1a1418;
-  --font-display: "M PLUS Rounded 1c", "Noto Sans SC", sans-serif;
-  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-serif: "Noto Serif SC", serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  /* font variables are provided by next/font/google via layout.tsx */
 }
 
 /* ── Base ─────────────────────────────────────────────── */
