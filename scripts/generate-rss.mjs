@@ -11,11 +11,11 @@ const SITE_TITLE = "Lee | 梦回廊";
 const SITE_DESC = "漫步于记忆与想象的廊道 —— 写代码，也做梦。";
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---/);
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return {};
   const result = {};
   let currentKey = "";
-  match[1].split("\n").forEach((line) => {
+  match[1].split(/\r?\n/).forEach((line) => {
     const kv = line.match(/^(\w+):\s*(.*)/);
     if (kv) {
       currentKey = kv[1];
@@ -36,15 +36,15 @@ function escapeXml(s) {
 
 function generateRSS() {
   if (!fs.existsSync(POSTS_DIR)) { console.log("✓ RSS skipped (no posts dir)"); return; }
-  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".mdx"));
+  const files = fs.readdirSync(POSTS_DIR).filter((f) => /\.(mdx|md)$/.test(f));
 
   const items = files
     .map((file) => {
-      const slug = file.replace(/\.mdx$/, "");
+      const slug = file.replace(/\.(mdx|md)$/, "");
       const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
       const meta = parseFrontmatter(raw);
       // Get content after frontmatter
-      const content = raw.replace(/^---\n[\s\S]*?\n---\n?/, "").trim();
+      const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "").trim();
       return { slug, ...meta, content };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
