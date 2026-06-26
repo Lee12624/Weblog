@@ -82,13 +82,13 @@ interface Frontmatter {
 }
 
 function parseFrontmatter(mdx: string): Frontmatter {
-  const match = mdx.match(/^---\n([\s\S]*?)\n---/);
+  const match = mdx.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return { title: "", date: "" };
   const raw = match[1];
   const result: Record<string, unknown> = {};
   let currentKey = "";
 
-  raw.split("\n").forEach((line) => {
+  raw.split(/\r?\n/).forEach((line) => {
     const kvMatch = line.match(/^(\w+):\s*(.*)/);
     if (kvMatch) {
       currentKey = kvMatch[1];
@@ -113,6 +113,6 @@ function parseFrontmatter(mdx: string): Frontmatter {
 }
 
 function parseMdxContent(raw: string): { content: string } {
-  const parts = raw.split(/^---\n[\s\S]*?\n---/);
+  const parts = raw.split(/^---\r?\n[\s\S]*?\r?\n---/);
   return { content: parts.slice(1).join("---").trim() };
 }

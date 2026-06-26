@@ -44,7 +44,68 @@ function SakuraPetals() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MAIN PAGE — 樱岛麻衣
+   REAL-TIME CLOCK
+   ═══════════════════════════════════════════════════════════ */
+function LiveClock() {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+
+  const y = time.getFullYear();
+  const m = time.getMonth() + 1;
+  const d = time.getDate();
+  const w = weekdays[time.getDay()];
+  const hh = String(time.getHours()).padStart(2, "0");
+  const mm = String(time.getMinutes()).padStart(2, "0");
+  const ss = String(time.getSeconds()).padStart(2, "0");
+
+  return (
+    <div className="live-clock" aria-label="current time">
+      <div className="live-clock-date">
+        {y}.{String(m).padStart(2, "0")}.{String(d).padStart(2, "0")}
+        <span className="live-clock-week"> ({w})</span>
+      </div>
+      <div className="live-clock-time">
+        {hh}<span className="live-clock-colon">:</span>{mm}<span className="live-clock-colon">:</span>{ss}
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HITOKOTO — 一言
+   ═══════════════════════════════════════════════════════════ */
+function Hitokoto() {
+  const [quote, setQuote] = useState<{ text: string; from: string } | null>(null);
+
+  useEffect(() => {
+    fetch("https://v1.hitokoto.cn/?c=a&c=b&c=d&c=e&c=f&c=k")
+      .then((res) => res.json())
+      .then((data) => {
+        setQuote({ text: data.hitokoto, from: data.from || "" });
+      })
+      .catch(() => {
+        setQuote({ text: "思いを綴る、桜の廊下で", from: "梦回廊" });
+      });
+  }, []);
+
+  if (!quote) return null;
+
+  return (
+    <div className="hitokoto">
+      <div className="hitokoto-text">{quote.text}</div>
+      {quote.from && <div className="hitokoto-from">—— {quote.from}</div>}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN PAGE
    ═══════════════════════════════════════════════════════════ */
 export default function MainPage() {
   const [loaded, setLoaded] = useState(false);
@@ -55,11 +116,11 @@ export default function MainPage() {
       {/* ── Background ── */}
       <div className="main-bg-base" />
 
-      {/* 樱岛麻衣 image as full-screen background */}
+      {/* 首页 image as full-screen background */}
       <div className="main-hero-img">
         <img
           src="/images/主页.jpg"
-          alt="桜島麻衣"
+          alt="background"
           style={{
             width: "100%",
             height: "100%",
@@ -68,7 +129,7 @@ export default function MainPage() {
             filter: "brightness(0.85) saturate(1.2) blur(3px)",
           }}
         />
-        {/* Gradient fades — darken edges, focus on Mai */}
+        {/* Gradient fades */}
         <div className="main-img-fade-top" />
         <div className="main-img-fade-bottom" />
         <div className="main-img-fade-left" />
@@ -76,6 +137,12 @@ export default function MainPage() {
 
       {/* ── Sakura petals ── */}
       <SakuraPetals />
+
+      {/* ── Live clock ── */}
+      <LiveClock />
+
+      {/* ── Hitokoto ── */}
+      <Hitokoto />
 
       {/* ── Content overlay ── */}
       <main className={`main-overlay ${loaded ? "visible" : ""}`}>

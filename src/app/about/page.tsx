@@ -12,7 +12,7 @@ function getAboutContent() {
 
   const raw = fs.readFileSync(filePath, "utf-8");
   const frontmatter = parseFrontmatter(raw);
-  const content = raw.replace(/^---\n[\s\S]*?\n---/, "").trim();
+  const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---/, "").trim();
 
   return {
     title: frontmatter.title || "关于",
@@ -22,10 +22,10 @@ function getAboutContent() {
 }
 
 function parseFrontmatter(md: string): Record<string, string> {
-  const match = md.match(/^---\n([\s\S]*?)\n---/);
+  const match = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return {};
   const result: Record<string, string> = {};
-  match[1].split("\n").forEach((line) => {
+  match[1].split(/\r?\n/).forEach((line) => {
     const m = line.match(/^(\w+):\s*(.*)/);
     if (m) result[m[1]] = m[2].trim().replace(/^["']|["']$/g, "");
   });

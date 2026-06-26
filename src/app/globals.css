@@ -17,7 +17,7 @@
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body {
     font-family: var(--font-body);
-    background: #0d0a0c;
+    background: radial-gradient(ellipse 50% 40% at 50% 40%, #1a1030, #0d0a14 60%, #080610 100%);
     color: #ede0e4;
     line-height: 1.6;
     overflow-x: hidden;
@@ -200,6 +200,95 @@
   color: rgba(237,224,228,0.45);
   letter-spacing: 0.08em;
   text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+/* ── Nav Loader (top progress bar) ───────────────────────── */
+.nav-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-sakura), var(--color-sakura-deep), #ffb8c8, #f0a8b8);
+  box-shadow: 0 0 6px rgba(240,168,184,0.5);
+  pointer-events: none;
+  opacity: 0;
+}
+.nav-loader.nav-loader-active {
+  opacity: 1;
+  width: 90%;
+  transition: width 5s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+.nav-loader.nav-loader-done {
+  width: 100%;
+  opacity: 0;
+  transition: width 0.4s ease, opacity 0.3s ease;
+}
+
+/* ── Hitokoto ───────────────────────────────────────────── */
+.hitokoto {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  max-width: 600px;
+  padding: 0 1rem;
+}
+.hitokoto-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  color: rgba(237,224,228,0.7);
+  line-height: 1.6;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+}
+.hitokoto-from {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: rgba(237,224,228,0.7);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* ── Live Clock ─────────────────────────────────────────── */
+.live-clock {
+  position: fixed;
+  left: 2rem;
+  bottom: 3rem;
+  z-index: 15;
+  font-family: var(--font-display);
+  text-align: left;
+  pointer-events: none;
+  user-select: none;
+}
+.live-clock-date {
+  font-size: 1.1rem;
+  color: rgba(237,224,228,0.55);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+}
+.live-clock-week {
+  color: var(--color-sakura);
+  opacity: 0.7;
+  font-size: 1rem;
+}
+.live-clock-time {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: rgba(237,224,228,0.75);
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.live-clock-colon {
+  opacity: 0.4;
+  animation: colon-blink 1s step-end infinite;
+}
+@keyframes colon-blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.15; }
 }
 
 /* ── Petals (reuse from sakura) ────────────────────────── */

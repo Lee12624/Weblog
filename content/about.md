@@ -3,9 +3,9 @@ title: 关于
 subtitle: 廊下の鏡に映る自分
 ---
 
-## 你好，我是 Lee
+## 您好呀，我是 Lee
 
-一个喜欢二次元、喜欢写代码的开发者。
+一个喜欢二次元、喜欢奇思妙想的开发者（应该算是吧~
 
 ### 关于梦回廊
 
@@ -13,13 +13,14 @@ subtitle: 廊下の鏡に映る自分
 
 ### 技能 & 兴趣
 
-- **前端**: React, Next.js, TypeScript, Tailwind CSS
-- **后端**: Node.js, Python
-- **其他**: 日语学习中, 看番, 偶尔画画
+- **前端**: 可以说是没什么进阶技术哈哈哈哈，/frontend-design 启动！
+- **后端**: Java为主，SpringBoot，Mybatis...
+- **AI能力**:Prompt，RAG，SpringAI、Vibe Coding！
+- **其他**: 看番, 听音乐，游戏大王！！
 
 ### 联系方式
 
-- GitHub: [@lee](https://github.com/lee)
-- Email: lee@example.com
+- GitHub: [@Lee12624](https://github.com/Lee12624)
+- Email: 3121953094@qq.com
 
 > 思いを綴る、桜の廊下で —— 在樱花飘落的走廊上，写下自己的思绪。

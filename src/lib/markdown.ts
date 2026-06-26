@@ -4,7 +4,7 @@
  *   lists, blockquotes, links, images, hr, emphasis.
  */
 export function markdownToHtml(md: string): string {
-  const lines = md.split("\n");
+  const lines = md.split(/\r?\n/);
   let html = "";
   let i = 0;
 

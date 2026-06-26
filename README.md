@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 梦回廊 — Lee 的个人网站
 
-## Getting Started
+二次元风格的静态个人网站，包含**文字**（博客）、**造物**（项目）、**关于**三个板块。
 
-First, run the development server:
+🌐 [weblog-a1q.pages.dev](https://weblog-a1q.pages.dev)
+
+## 技术栈
+
+- **Next.js 16** — App Router，静态导出
+- **Tailwind CSS v4** — 样式
+- **Markdown** — 文件驱动的内容管理（frontmatter + 自定义解析器）
+- **Cloudflare Pages** — 部署
+
+## 功能
+
+- 📝 基于 Markdown 的博客系统（支持标签、阅读时间）
+- 🛠️ 项目展示（支持技术栈、链接、GitHub）
+- 🌸 樱花粒子动画 + 一言（Hitokoto）每日台词
+- ⏰ 实时时钟（日式日期格式）
+- 📊 页面导航进度条
+- 🌙 深色主题
+
+## 快速开始
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # 开发 → http://localhost:3000
+npm run build    # 构建 → out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 内容管理
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+所有内容在 `content/` 目录下，直接编辑 `.md` 文件即可。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 写文章
 
-## Learn More
+在 `content/posts/` 下新建 `.md` 文件：
 
-To learn more about Next.js, take a look at the following resources:
+```md
+---
+title: 我的文章标题
+date: 2026-06-26
+excerpt: 一句话摘要
+tags: [标签1, 标签2]
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+文章内容（Markdown 格式）...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> **文件名用英文**（会变成 URL），标题在 frontmatter 里写中文。
 
-## Deploy on Vercel
+### 添加项目
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+在 `content/projects/` 下新建 `.md` 文件：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```md
+---
+title: 项目名称
+description: 项目描述
+date: 2026-06-26
+tech: [Next.js, Tailwind]
+link: https://example.com
+github: https://github.com/xxx
+---
+
+详细介绍...
+```
+
+### 修改"关于"页面
+
+直接编辑 `content/about.md`：
+
+```md
+---
+title: 关于我
+subtitle: 思いを綴る、桜の廊下で
+---
+
+在这里写自我介绍...
+```
+
+## 目录结构
+
+```
+├── content/
+│   ├── about.md              # 关于页面
+│   ├── posts/                # 博客文章
+│   └── projects/             # 项目
+├── public/images/            # 静态图片
+├── src/
+│   ├── app/                  # 页面路由
+│   │   ├── blog/             # /blog
+│   │   ├── projects/         # /projects
+│   │   └── about/            # /about
+│   ├── components/           # 组件
+│   └── lib/                  # 工具函数
+└── out/                      # 构建输出
+```
+
+## 部署
+
+项目配置为 Cloudflare Pages 静态部署：
+
+- **Build command:** `npm run build`
+- **Build output dir:** `out`
+
+推送即自动部署。

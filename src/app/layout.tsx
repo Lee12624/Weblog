@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c, Noto_Sans_SC, Noto_Serif_SC, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import NavLoader from "@/components/nav-loader";
 import "./globals.css";
 
 const mplusRounded = M_PLUS_Rounded_1c({
@@ -67,6 +68,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen">
+        <NavLoader />
         <ThemeProvider>
           {children}
         </ThemeProvider>
