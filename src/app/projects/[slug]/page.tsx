@@ -22,7 +22,7 @@ export default async function ProjectPage({ params }: Props) {
       {/* Background image */}
       <div className="sub-bg">
         <img
-          src="/images/rooftop-anime.jpg"
+          src="/images/other.jpg"
           alt=""
           style={{
             width: "100%",

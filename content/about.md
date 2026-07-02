@@ -1,6 +1,6 @@
 ---
 title: 关于
-subtitle: 廊下の鏡に映る自分
+subtitle: 心の安らぐ場所
 ---
 
 ## 您好呀，我是 Lee

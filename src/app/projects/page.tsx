@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
       {/* Background image */}
       <div className="sub-bg">
         <img
-          src="/images/rooftop-anime.jpg"
+          src="/images/other.jpg"
           alt=""
           style={{
             width: "100%",
@@ -44,7 +44,7 @@ export default async function ProjectsPage() {
         >
           造物
         </h1>
-        <p className="sub-desc">屋上から見上げる星空</p>
+        <p className="sub-desc">空に架かる橋の上で</p>
 
         {/* Project list */}
         <div style={{ marginTop: "2.5rem", textAlign: "left" }}>

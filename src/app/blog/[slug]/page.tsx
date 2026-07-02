@@ -22,7 +22,7 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Background image */}
       <div className="sub-bg">
         <img
-          src="/images/classroom-bg.jpg"
+          src="/images/h.png"
           alt=""
           style={{
             width: "100%",

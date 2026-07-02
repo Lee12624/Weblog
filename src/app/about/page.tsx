@@ -40,7 +40,7 @@ export default function AboutPage() {
       <div className="sub-page visible">
         <div className="sub-bg">
           <img
-            src="/images/corridor-anime.jpg"
+            src="/images/my.jpg"
             alt=""
             style={{
               width: "100%", height: "100%", objectFit: "cover",
@@ -73,7 +73,7 @@ export default function AboutPage() {
       {/* Background image */}
       <div className="sub-bg">
         <img
-          src="/images/corridor-anime.jpg"
+          src="/images/my.jpg"
           alt=""
           style={{
             width: "100%",

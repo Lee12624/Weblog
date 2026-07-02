@@ -12,7 +12,7 @@ export default async function BlogPage() {
       {/* Background image */}
       <div className="sub-bg">
         <img
-          src="/images/classroom-bg.jpg"
+          src="/images/h.png"
           alt=""
           style={{
             width: "100%",
@@ -41,7 +41,7 @@ export default async function BlogPage() {
         <h1 className="sub-title" style={{ color: "#e8b88a", fontSize: "clamp(3rem, 8vw, 6rem)" }}>
           文字
         </h1>
-        <p className="sub-desc">教室の窓辺で綴る思い</p>
+        <p className="sub-desc">思い出が行き交う廊下</p>
 
         {/* Post list */}
         <div style={{ marginTop: "2.5rem", textAlign: "left" }}>
