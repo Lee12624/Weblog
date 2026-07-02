@@ -226,7 +226,7 @@
 /* ── Hitokoto ───────────────────────────────────────────── */
 .hitokoto {
   position: fixed;
-  top: 18%;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;

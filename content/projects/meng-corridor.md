@@ -9,7 +9,7 @@ github: https://github.com/Lee12624/Weblog
 
 ## 关于这个项目
 
-梦回廊是我个人使用 Next.js 16 + Tailwind CSS 搭建的个人网站。
+梦回廊是我使用 Next.js 16 + Tailwind CSS 搭建的个人网站。
 
 ### 主要功能
 
